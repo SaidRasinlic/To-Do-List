@@ -2,7 +2,7 @@
 
 > This is a very simple application built with a Webpack and served by the Webpack dev server. User can easily add, remove and mark as checked his day tasks.
 
-![screenshot](./img/#)
+![screenshot](./src/img/To-Do-List-Desktop.png)
 
 Additional description about the project and its features.
 
