@@ -1,0 +1,105 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 50vh;
+  width: 100%;
+  background-color: #e8e8e8;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  height: auto;
+  width: 50%;
+  background-color: white;
+}
+
+.to-do-header,
+.to-do-list,
+.to-do-footer {
+  list-style: none;
+}
+
+.to-do-header,
+.to-do-list {
+  height: 100%;
+  width: 100%;
+}
+
+.to-do-header li,
+.to-do-list li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 20px;
+}
+
+.to-do-header input {
+  width: 90%;
+  border: none;
+  font-size: 18px;
+}
+
+input::placeholder {
+  font-style: italic;
+  font-size: 18px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.to-do-list input {
+  width: 16px;
+  height: 16px;
+  margin: 0 10px;
+}
+
+input:checked + span {
+  text-decoration: line-through;
+}
+
+.fa-ellipsis-vertical {
+  margin-right: 6px;
+  cursor: move;
+}
+
+.to-do-list span:nth-child(1) {
+  margin-left: -8px;
+}
+
+.fa-plus,
+.fa-arrows-rotate {
+  cursor: pointer;
+  color: #a9a9a9;
+}
+
+.fa-plus:hover,
+.fa-arrows-rotate:hover {
+  font-size: 22px;
+  color: black;
+}
+
+.to-do-footer {
+  font-size: 18px;
+  padding: 20px;
+  background-color: #a9a9a977;
+  width: 100%;
+  text-align: center;
+}
+
+.to-do-footer li:hover {
+  font-size: 19px;
+  text-decoration: underline;
+  cursor: pointer;
+}
