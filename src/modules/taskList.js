@@ -6,7 +6,8 @@ export default class TaskList {
     this.todoList = localStorage.todoList ? JSON.parse(localStorage.todoList) : [];
   }
 
-  addTask(description = '') {
+  addTask(description) {
+    console.log(description);
     const newItem = document.getElementById('todo-item');
     if (description || newItem.value) {
       if (!description) description = newItem.value;

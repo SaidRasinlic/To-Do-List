@@ -41,7 +41,6 @@ html {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #c0c0c0;
-  /* padding: 20px; */
   padding: 10px;
   height: 60px;
 }
@@ -116,7 +115,6 @@ input:focus {
 
 span#spanuj {
   width: 95%;
-  /* height: 50px; */
   display: flex;
   align-items: center;
 }
