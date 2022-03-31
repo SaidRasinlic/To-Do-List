@@ -23,29 +23,31 @@ html {
 }
 
 .to-do-header,
-.to-do-list,
+.todo-list,
 .to-do-footer {
   list-style: none;
 }
 
 .to-do-header,
-.to-do-list {
+.todo-list {
   height: 100%;
   width: 100%;
 }
 
 .to-do-header li,
-.to-do-list li {
+.todo-list li {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #c0c0c0;
-  padding: 20px;
+  padding: 10px;
+  height: 60px;
 }
 
 .to-do-header input {
-  width: 90%;
+  width: 95%;
+  height: 50px;
   border: none;
   font-size: 18px;
 }
@@ -59,13 +61,13 @@ input:focus {
   outline: none;
 }
 
-.to-do-list input {
+.todo-list input {
   width: 16px;
   height: 16px;
   margin: 0 10px;
 }
 
-input:checked + span {
+.completed:checked + span {
   text-decoration: line-through;
 }
 
@@ -74,20 +76,27 @@ input:checked + span {
   cursor: move;
 }
 
-.to-do-list span:nth-child(1) {
+.todo-list span:nth-child(1) {
   margin-left: -8px;
 }
 
 .fa-plus,
-.fa-arrows-rotate {
+.fa-arrows-rotate,
+.fa-ellipsis-vertical,
+.fa-trash-can {
   cursor: pointer;
   color: #a9a9a9;
 }
 
 .fa-plus:hover,
-.fa-arrows-rotate:hover {
-  font-size: 22px;
+.fa-arrows-rotate:hover,
+.fa-ellipsis-vertical:hover,
+.fa-trash-can:hover {
   color: black;
+}
+
+.hidden {
+  display: none;
 }
 
 .to-do-footer {
@@ -102,4 +111,29 @@ input:checked + span {
   font-size: 19px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+span#spanuj {
+  width: 95%;
+  display: flex;
+  align-items: center;
+}
+
+span#desc {
+  width: 95%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+#task-counter {
+  color: red;
+}
+
+.edit-mode {
+  background-color: rgba(209, 209, 20, 0.103);
+}
+
+[contenteditable] {
+  outline: 0 solid transparent;
 }
