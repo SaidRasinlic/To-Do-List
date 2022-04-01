@@ -119,7 +119,7 @@ input:focus {
   border-color: transparent black transparent transparent;
 }
 
-.counter:hover{
+.counter:hover {
   visibility: visible;
 }
 
