@@ -5,8 +5,7 @@ const myToDoList = new TaskList();
 
 window.onload = myToDoList.renderList();
 
-const newItemBtn = document.getElementById('add-button');
-newItemBtn.addEventListener('click', (e) => {
-  e.preventDefault();
+const newItem = document.getElementById('add-button');
+newItem.addEventListener('click', () => {
   myToDoList.addTask.apply(myToDoList);
 });

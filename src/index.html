@@ -15,7 +15,7 @@
  <div class="wrapper">
   <ul class="to-do-header">
    <li>
-    <h2>Today's to do</h2><span class="fa-solid fa-arrows-rotate fa-lg"></span>
+    <h2>Today's to do</h2><span class="fa-solid fa-arrows-rotate fa-lg" title="Filter list" id="filter"><span id="counter"></span></span>
    </li>
    <li>
     <input type="text" id="todo-item" required placeholder="Add to your list..."><span class="fa-solid fa-plus fa-lg" id="add-button"></span>
@@ -27,7 +27,7 @@
   </ul>
 
   <ul id="clear-all-btn" class="to-do-footer">
-   <li>Clear all completed</li>
+   <li id="clear-completed">Clear all completed</li>
   </ul>
  </div>
 
