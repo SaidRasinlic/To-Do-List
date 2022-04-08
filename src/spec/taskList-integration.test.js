@@ -239,9 +239,9 @@ describe('updateIndexes() method', () => {
       completed: true,
       index: 3,
     }];
-    [myToDoListMock.tasks[0], myToDoListMock.tasks[1]] = [
-      myToDoListMock.tasks[1],
-      myToDoListMock.tasks[0],
+    [myToDoListMock.todoList[0], myToDoListMock.todoList[1]] = [
+      myToDoListMock.todoList[1],
+      myToDoListMock.todoList[0],
     ];
     myToDoListMock.updateIndexes();
     let counterIndex = 0;
