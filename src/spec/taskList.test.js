@@ -1,7 +1,7 @@
-import ToDo from '../modules/taskList.js';
+import TaskList from '../modules/taskList.js';
 
 // Arrange
-const myToDoListMock = new ToDo();
+const myToDoListMock = new TaskList();
 
 beforeEach(() => {
   global.localStorage = {};

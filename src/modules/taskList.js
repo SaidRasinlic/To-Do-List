@@ -62,8 +62,8 @@ export default class TaskList {
       <li class="element" id="task-${todo.index}">
       <span id="spanuj"><input class="checkbox ${todo.completed ? ' completed' : ''}" type="checkbox" checked="${todo.completed}">
       <span id="desc" contentEditable="plaintext-only" spellcheck="false">${todo.description}</span></span>
-      <span class="fa-solid fa-trash-can hidden"></span>
-      <span class="fa-solid fa-ellipsis-vertical fa-lg"></span>
+      <span title="Delete it" class="fa-solid fa-trash-can hidden"></span>
+      <span title="Drag it" class="fa-solid fa-ellipsis-vertical fa-lg"></span>
       </li>`;
     });
     counter.innerHTML = this.getAllTasks();
@@ -87,6 +87,45 @@ export default class TaskList {
       parent.classList.toggle('edit-mode');
       parent.children[1].classList.toggle('hidden');
       parent.children[2].classList.toggle('hidden');
+    }
+
+    // DRAG and DROP
+    function dragTask(task) {
+      task.draggable = true;
+      task.addEventListener('dragstart', () => {
+        task.classList.add('dragging');
+      });
+      task.addEventListener('dragend', () => {
+        task.classList.remove('dragging');
+      });
+    }
+
+    function dropTask(task) {
+      task.draggable = false;
+      const list = document.querySelector('.todo-list');
+      const previousIndex = task.id.split('-')[1];
+      let newIndex;
+      let counter = 0;
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const listItem of list.children) {
+        if (listItem.id.split('-')[1] === previousIndex) newIndex = counter;
+        counter += 1;
+      }
+      const movedTask = obj.todoList.splice(previousIndex, 1)[0];
+      obj.todoList.splice(newIndex, 0, movedTask);
+      obj.updateIndexes();
+    }
+
+    function moveTask(y) {
+      const list = document.querySelector('.todo-list');
+      const otherTasks = [...list.querySelectorAll('li:not(.dragging):not(.clear-completed)')];
+      return otherTasks.reduce((closest, otherTask) => {
+        const box = otherTask.getBoundingClientRect();
+        const offset = y - box.top - (box.height / 2);
+        if (offset < 0 && offset > closest.offset) return { offset, nextTask: otherTask };
+        return closest;
+      }, { offset: Number.NEGATIVE_INFINITY }).nextTask;
     }
 
     this.todoList.forEach((task) => {
@@ -113,11 +152,29 @@ export default class TaskList {
       // Event listeners for deleting tasks.
       const binBtn = document.getElementById(`task-${task.index}`).children[1];
       binBtn.addEventListener('click', () => obj.deleteTask(task.index));
+
+      // add event for 'Drag and Drop List items'
+      const dragBtn = document.getElementById(`task-${task.index}`).children[2];
+      const listItem = document.getElementById(`task-${task.index}`);
+      dragBtn.addEventListener('mousedown', () => dragTask(listItem));
+      listItem.addEventListener('dragend', () => dropTask(listItem));
     });
 
     const clearAllBtn = document.getElementById('clear-completed');
     clearAllBtn.addEventListener('click', () => obj.clearAllBtn());
 
+    // add event for 'Dragging over the list os tasks'
+    const list = document.querySelector('.todo-list');
+    list.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      const afterTask = moveTask(e.clientY);
+      const movingTask = document.querySelector('.dragging');
+      if (afterTask) {
+        list.insertBefore(movingTask, afterTask);
+      } else {
+        list.insertBefore(movingTask, document.querySelector('.clear-completed'));
+      }
+    });
     // Event listener for filtering an array
     const filter = document.getElementById('filter');
     filter.addEventListener('click', () => obj.filterAll());
