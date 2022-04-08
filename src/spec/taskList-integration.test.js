@@ -47,19 +47,19 @@ describe('Editing a task description', () => {
       completed: false,
     },
     {
+      index: 1,
       description: 'My first complete task',
       completed: true,
-      index: 1,
     },
     {
+      index: 2,
       description: 'My second incomplete task',
       completed: false,
-      index: 2,
     },
     {
+      index: 3,
       description: 'My second complete task',
       completed: true,
-      index: 3,
     }];
 
     myToDoListMock.renderList();
@@ -111,19 +111,19 @@ describe('update Completed status', () => {
       completed: false,
     },
     {
+      index: 1,
       description: 'My first complete task',
       completed: true,
-      index: 1,
     },
     {
+      index: 2,
       description: 'My second incomplete task',
       completed: false,
-      index: 2,
     },
     {
+      index: 3,
       description: 'My second complete task',
       completed: true,
-      index: 3,
     }];
 
     myToDoListMock.renderList();
@@ -165,24 +165,24 @@ describe('clearAll completed', () => {
 
   test('should clear all completed', () => {
     myToDoListMock.todoList = [{
+      index: 0,
       description: 'My first incomplete task',
       completed: false,
-      index: 0,
     },
     {
+      index: 1,
       description: 'My first complete task',
       completed: true,
-      index: 1,
     },
     {
+      index: 2,
       description: 'My second incomplete task',
       completed: false,
-      index: 2,
     },
     {
+      index: 3,
       description: 'My second complete task',
       completed: true,
-      index: 3,
     }];
     expect(myToDoListMock.todoList.length).toBe(4);
     myToDoListMock.clearAllBtn();
@@ -220,24 +220,24 @@ describe('updateIndexes() method', () => {
 
   test('should update an item\'s index property upon drag/drop actions', () => {
     myToDoListMock.todoList = [{
+      index: 0,
       description: 'My first incomplete task',
       completed: false,
-      index: 0,
     },
     {
+      index: 1,
       description: 'My first complete task',
       completed: true,
-      index: 1,
     },
     {
+      index: 2,
       description: 'My second incomplete task',
       completed: false,
-      index: 2,
     },
     {
+      index: 3,
       description: 'My second complete task',
       completed: true,
-      index: 3,
     }];
     [myToDoListMock.todoList[0], myToDoListMock.todoList[1]] = [
       myToDoListMock.todoList[1],
