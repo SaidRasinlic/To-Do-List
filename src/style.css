@@ -99,6 +99,10 @@ input:focus {
   color: black;
 }
 
+.fa-ellipsis-vertical:hover {
+  cursor: move;
+}
+
 .hidden {
   display: none;
 }
