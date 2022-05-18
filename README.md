@@ -1,6 +1,6 @@
 # "To Do List"
 
-> This is a very simple application built with a Webpack and served by the Webpack dev server. User can easily add, remove and mark as checked his day tasks.
+> This is a very simple application built with a Webpack and served by the Webpack dev server. User can easily add, remove, drag & drop, and mark as checked his day tasks.
 
 ![screenshot](./src/img/To-Do-List-Desktop.png)
 
